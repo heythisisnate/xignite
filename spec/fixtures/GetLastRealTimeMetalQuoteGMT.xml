@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MetalQuote xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+  <Outcome>Success</Outcome>
+  <Identity>Cookie</Identity>
+  <Delay>0.005</Delay>
+  <Symbol>XAUUSDO</Symbol>
+  <Type>XAU</Type>
+  <Currency>USD</Currency>
+  <Date>9/30/2011</Date>
+  <Time>9:59:56 PM</Time>
+  <Rate>1624</Rate>
+  <Bid>1623.40002441</Bid>
+  <BidTime>9:59:56 PM</BidTime>
+  <Ask>1624.59997559</Ask>
+  <AskTime>9:59:56 PM</AskTime>
+</MetalQuote>

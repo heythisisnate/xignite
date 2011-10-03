@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LondonFixing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+  <Outcome>Success</Outcome>
+  <Identity>Cookie</Identity>
+  <Delay>0.001</Delay>
+  <Type>LondonGold</Type>
+  <Symbol>AU</Symbol>
+  <Currency>USD</Currency>
+  <Period>Evening</Period>
+  <Date>9/30/2011</Date>
+  <Value>1620</Value>
+  <Unit>oz</Unit>
+  <Source>The London Bullion Market Association</Source>
+</LondonFixing>

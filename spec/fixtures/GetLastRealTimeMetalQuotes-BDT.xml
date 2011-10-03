@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMetalQuote xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+  <MetalQuote>
+    <Outcome>Success</Outcome>
+    <Identity>Request</Identity>
+    <Delay>0.021001</Delay>
+    <Symbol>XAUUSDO</Symbol>
+    <Type>XAU</Type>
+    <Currency>USD</Currency>
+    <Date>5/6/2011</Date>
+    <Time>10:59:56 PM</Time>
+    <Rate>913.62464349</Rate>
+    <Bid>913.34974229</Bid>
+    <BidTime>10:59:56 PM</BidTime>
+    <Ask>913.89954469</Ask>
+    <AskTime>10:59:56 PM</AskTime>
+  </MetalQuote>
+  <MetalQuote>
+    <Outcome>Success</Outcome>
+    <Delay>0</Delay>
+    <Symbol>XAGUSDO</Symbol>
+    <Type>XAG</Type>
+    <Currency>USD</Currency>
+    <Date>5/6/2011</Date>
+    <Time>10:59:56 PM</Time>
+    <Rate>21.77158394</Rate>
+    <Bid>21.75447951</Bid>
+    <BidTime>10:59:56 PM</BidTime>
+    <Ask>21.78868836</Ask>
+    <AskTime>10:59:56 PM</AskTime>
+  </MetalQuote>
+  <MetalQuote>
+    <Outcome>Success</Outcome>
+    <Delay>0</Delay>
+    <Symbol>XPTUSDO</Symbol>
+    <Type>XPT</Type>
+    <Currency>USD</Currency>
+    <Date>5/6/2011</Date>
+    <Time>10:13:17 PM</Time>
+    <Rate>1091.328153</Rate>
+    <Bid>1089.80096555</Bid>
+    <BidTime>10:13:17 PM</BidTime>
+    <Ask>1092.85534045</Ask>
+    <AskTime>10:13:17 PM</AskTime>
+  </MetalQuote>
+</ArrayOfMetalQuote>

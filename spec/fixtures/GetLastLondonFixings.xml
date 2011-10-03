@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLondonFixing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+  <LondonFixing>
+    <Outcome>Success</Outcome>
+    <Identity>Cookie</Identity>
+    <Delay>0.019</Delay>
+    <Type>LondonGold</Type>
+    <Symbol>AU</Symbol>
+    <Currency>USD</Currency>
+    <Period>Evening</Period>
+    <Date>9/30/2011</Date>
+    <Value>1620</Value>
+    <Unit>oz</Unit>
+    <Source>The London Bullion Market Association</Source>
+  </LondonFixing>
+  <LondonFixing>
+    <Outcome>Success</Outcome>
+    <Identity>Cookie</Identity>
+    <Delay>0.001</Delay>
+    <Type>LondonSilver</Type>
+    <Symbol>AG</Symbol>
+    <Currency>USD</Currency>
+    <Period>Evening</Period>
+    <Date>9/30/2011</Date>
+    <Value>30.45</Value>
+    <Unit>oz</Unit>
+    <Source>The London Bullion Market Association</Source>
+  </LondonFixing>
+  <LondonFixing>
+    <Outcome>Success</Outcome>
+    <Identity>Cookie</Identity>
+    <Delay>0.001</Delay>
+    <Type>LondonPlatinum</Type>
+    <Symbol>PT</Symbol>
+    <Currency>USD</Currency>
+    <Period>Evening</Period>
+    <Date>9/30/2011</Date>
+    <Value>1511</Value>
+    <Unit>oz</Unit>
+    <Source>The London Platinum &amp; Palladium Market</Source>
+  </LondonFixing>
+  <LondonFixing>
+    <Outcome>Success</Outcome>
+    <Identity>Cookie</Identity>
+    <Delay>0.001</Delay>
+    <Type>LondonPalladium</Type>
+    <Symbol>PD</Symbol>
+    <Currency>USD</Currency>
+    <Period>Evening</Period>
+    <Date>9/30/2011</Date>
+    <Value>614</Value>
+    <Unit>oz</Unit>
+    <Source>The London Platinum &amp; Palladium Market</Source>
+  </LondonFixing>
+</ArrayOfLondonFixing>
