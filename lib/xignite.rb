@@ -1,8 +1,9 @@
+require 'cgi'
 require 'tzinfo'
 require 'xignite/configuration'
 
 module Xignite
-  URL = 'www.lib.com'
+  URL = 'www.xignite.com'
   DATE_FORMAT = '%m/%d/%Y'
   TIME_FORMAT = '%I:%M:%S %p'
 

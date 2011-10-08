@@ -16,6 +16,15 @@ module Xignite
         new(response)
       end
 
+      def get(options={})
+        options.merge!('Header_Username' => Xignite.configuration.username) if Xignite.configuration.username
+        querystring = options.map do |key, value|
+          "#{CGI.escape(key.to_s).gsub(/%(5B|5D)/n) { [$1].pack('H*') }}=#{CGI.escape(value)}"
+        end.sort * '&'
+        response = Curl::Easy.http_get([endpoint, querystring].reject{|s| s == '' }.join('?'))
+        new(response)
+      end
+
       private
       
       def endpoint
@@ -35,7 +44,7 @@ module Xignite
           class_eval <<-EOF
             class << self
               def #{underscored_name}(options={})
-                #{name}::#{operation}.post(options)
+                #{name}::#{operation}.send(Xignite.configuration.request_method, options)
               end
               alias :#{operation} :#{underscored_name}
             end

@@ -1,9 +1,10 @@
 module Xignite
   class Configuration
-    attr_accessor :username, :https, :endpoint
+    attr_accessor :username, :https, :endpoint, :request_method
 
     def initialize
-      self.endpoint = 'www.xignite.com'
+      self.endpoint = Xignite::URL
+      self.request_method = :get
     end
   end
 end

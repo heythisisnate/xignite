@@ -4,4 +4,5 @@ describe Xignite::Configuration do
   its(:username) { should be_nil }
   its(:https) { should be_false }
   its(:endpoint) { should == 'www.xignite.com' }
+  its(:request_method) { should == :get }
 end
