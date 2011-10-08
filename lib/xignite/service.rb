@@ -6,8 +6,8 @@ module Xignite
     class << self
       attr_accessor :options
 
-      def post(url, options={})
-        response = Curl::Easy.http_post(url, *[].tap do |postbody|
+      def post(options={})
+        response = Curl::Easy.http_post(endpoint, *[].tap do |postbody|
           postbody << Curl::PostField.content('Header_Username', Xignite.configuration.username) if Xignite.configuration.username
           options.each do |key, value|
             postbody << Curl::PostField.content(key, value)
@@ -19,7 +19,8 @@ module Xignite
       private
       
       def endpoint
-        "#{Xignite.configuration.endpoint}/x#{name.split('::').last}.asmx"
+        names = name.split('::')
+        "#{Xignite.configuration.endpoint}/x#{names[1]}.asmx/#{names[2]}"
       end
 
       def protocol
@@ -34,7 +35,7 @@ module Xignite
           class_eval <<-EOF
             class << self
               def #{underscored_name}(options={})
-                #{name}::#{operation}.post('#{endpoint}/#{operation}', options)
+                #{name}::#{operation}.post(options)
               end
               alias :#{operation} :#{underscored_name}
             end

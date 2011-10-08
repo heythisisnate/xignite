@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CrossRate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+  <Outcome>Success</Outcome>
+  <Message>Cross-rate calculated by inverting from EURUSD.</Message>
+  <Identity>Cookie</Identity>
+  <Delay>0.017001</Delay>
+  <Symbol>USDEUR</Symbol>
+  <Type>RealTime</Type>
+  <From>
+    <Symbol>USD</Symbol>
+    <Name>United States Dollar</Name>
+  </From>
+  <To>
+    <Symbol>EUR</Symbol>
+    <Name>Euro</Name>
+  </To>
+  <Date>10/3/2011</Date>
+  <Time>1:45:52 AM</Time>
+  <Rate>0.74836295202790726</Rate>
+  <Bid>0.748278940453873</Bid>
+  <BidTime>1:45:52 AM</BidTime>
+  <Ask>0.74844698246853436</Ask>
+  <AskTime>1:45:52 AM</AskTime>
+  <Text>1 United States Dollar = 0.74836 Euro</Text>
+</CrossRate>

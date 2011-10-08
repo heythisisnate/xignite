@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Xignite::Metals do
-  its('class.endpoint') { should == 'www.xignite.com/xMetals.asmx' }
-
-  describe ".get_last_real_time_metal_quotes" do
+  describe Xignite::Metals::GetLastRealTimeMetalQuotes do
     before do
       @stub = stub_request(:post, 'www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuotes').with(
         'Types' => 'XAU,XAG,XPT',
@@ -13,6 +11,11 @@ describe Xignite::Metals do
 
     it "makes the request with the given parameters" do
       Xignite::Metals.get_last_real_time_metal_quotes('Types' => 'XAU,XAG,XPT', 'Currency' => 'USD')
+      @stub.should have_been_requested
+    end
+
+    it "makes the request with the given parameters" do
+      Xignite::Metals::GetLastRealTimeMetalQuotes.post('Types' => 'XAU,XAG,XPT', 'Currency' => 'USD')
       @stub.should have_been_requested
     end
 
@@ -33,11 +36,11 @@ describe Xignite::Metals do
     end
 
     describe Xignite::Metals::GetLastRealTimeMetalQuotes do
-      subject { Xignite::Metals::GetLastRealTimeMetalQuotes.post(url) }
-      let(:url) { 'https://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuotes' }
+      subject { Xignite::Metals::GetLastRealTimeMetalQuotes.post }
+      let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuotes' }
 
       context "in London standard time (BST)" do
-        let(:body) { fixture_file('GetLastRealTimeMetalQuotes.xml') }
+        let(:body) { fixture_file('metals/GetLastRealTimeMetalQuotes.xml') }
 
         describe "#array_of_metal_quote" do
           it "automatically defines the response classes" do
@@ -97,7 +100,7 @@ describe Xignite::Metals do
       end
 
       context "in London Daylight time (BDT)" do
-        let(:body) { fixture_file('GetLastRealTimeMetalQuotes-BDT.xml') }
+        let(:body) { fixture_file('metals/GetLastRealTimeMetalQuotes-BDT.xml') }
 
         describe "#array_of_metal_quote" do
           it "parses the time in the correct time zone" do
@@ -108,9 +111,9 @@ describe Xignite::Metals do
     end
 
     describe Xignite::Metals::GetLastRealTimeMetalQuoteGMT do
-      subject { Xignite::Metals::GetLastRealTimeMetalQuoteGMT.post(url) }
-      let(:url) { 'https://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuoteGMT' }
-      let(:body) { fixture_file('GetLastRealTimeMetalQuoteGMT.xml') }
+      subject { Xignite::Metals::GetLastRealTimeMetalQuoteGMT.post }
+      let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuoteGMT' }
+      let(:body) { fixture_file('metals/GetLastRealTimeMetalQuoteGMT.xml') }
       let(:item) { subject.metal_quote }
 
       describe "#metal_quote" do
@@ -137,11 +140,10 @@ describe Xignite::Metals do
       end
     end
 
-
     describe Xignite::Metals::GetLastLondonFixing do
-      subject { Xignite::Metals::GetLastLondonFixing.post(url) }
-      let(:url) { 'https://www.xignite.com/xMetals.asmx/GetLastLondonFixing' }
-      let(:body) { fixture_file('GetLastLondonFixing.xml') }
+      subject { Xignite::Metals::GetLastLondonFixing.post }
+      let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastLondonFixing' }
+      let(:body) { fixture_file('metals/GetLastLondonFixing.xml') }
 
       describe "#london_fixing" do
         it "returns a LondonFixing Hash with smart types" do
@@ -180,9 +182,9 @@ describe Xignite::Metals do
     end
 
     describe Xignite::Metals::GetLastLondonFixings do
-      subject { Xignite::Metals::GetLastLondonFixings.post(url) }
-      let(:url) { 'https://www.xignite.com/xMetals.asmx/GetLastLondonFixings' }
-      let(:body) { fixture_file('GetLastLondonFixings.xml') }
+      subject { Xignite::Metals::GetLastLondonFixings.post }
+      let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastLondonFixings' }
+      let(:body) { fixture_file('metals/GetLastLondonFixings.xml') }
 
       describe "#array_of_london_fixing" do
         it "is automatically defined" do
@@ -209,6 +211,21 @@ describe Xignite::Metals do
           end
         end
       end
+    end
+
+    describe Xignite::Metals::GetMetalSpotChart do
+      subject { Xignite::Metals::GetMetalSpotChart.post }
+      let(:url) { 'http://www.xignite.com/xMetals.asmx/GetMetalSpotChart' }
+      let(:body) { fixture_file('metals/GetMetalSpotChart.xml') }
+
+      describe "#historical_chart" do
+        it "is automatically defined" do
+          chart = subject.historical_chart
+          chart.should be_a(Xignite::HistoricalChart)
+          chart.should be_kind_of(Hash)
+        end
+      end
+
     end
   end
 

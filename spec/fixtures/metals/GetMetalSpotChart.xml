@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HistoricalChart xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+  <Outcome>Success</Outcome>
+  <Identity>Cookie</Identity>
+  <Delay>0.033</Delay>
+  <Design>
+    <Outcome>Success</Outcome>
+    <Delay>0</Delay>
+    <Secure>false</Secure>
+    <TextTitle> $name$ ($symbol$)$cr$$startdate$ - $enddate$</TextTitle>
+    <TextHeader />
+    <TextFooter />
+    <TextPriceLine>Price</TextPriceLine>
+    <TextVolumeBar>Volume</TextVolumeBar>
+    <TextHighest>Highest</TextHighest>
+    <TextLowest>Lowest</TextLowest>
+    <TextOpen>Open</TextOpen>
+    <TextClose>Close</TextClose>
+    <TextUp>$year$-Year Increase</TextUp>
+    <TextDown>$year$-Year Decline</TextDown>
+    <ColorBackground>#EDEDD8</ColorBackground>
+    <ColorBackWall>#FFFFFF</ColorBackWall>
+    <ColorVolumeBackWall>#FFFFFF</ColorVolumeBackWall>
+    <ShowVolumeBackWall>false</ShowVolumeBackWall>
+    <ColorHighlight>#B2B234</ColorHighlight>
+    <ColorPriceLine>#000000</ColorPriceLine>
+    <ColorVolumeBar>#000000</ColorVolumeBar>
+    <ColorVolumeBarFill>#000000</ColorVolumeBarFill>
+    <ColorHigh>#339933</ColorHigh>
+    <ColorStickUp>#009900</ColorStickUp>
+    <ColorStickLow>#CC0000</ColorStickLow>
+    <ColorConstant>#333399</ColorConstant>
+    <ColorLow>#FF0000</ColorLow>
+    <ColorPoint>#000000</ColorPoint>
+    <ColorTitle>#000000</ColorTitle>
+    <ColorFooter>#000000</ColorFooter>
+    <ColorHeader>#000000</ColorHeader>
+    <ColorAxis>#000000</ColorAxis>
+    <ColorGrid>#000000</ColorGrid>
+    <ColorFonts>#000000</ColorFonts>
+    <ColorStripe>#EDEDD8</ColorStripe>
+    <ColorOpen>#DBC309</ColorOpen>
+    <ColorClose>#DBC309</ColorClose>
+    <ColorVerticalGrid>#808080</ColorVerticalGrid>
+    <ColorHorizontalGrid>#808080</ColorHorizontalGrid>
+    <ColorUp>#009900</ColorUp>
+    <ColorDown>#CC0000</ColorDown>
+    <ColorHighLowLine>#000000</ColorHighLowLine>
+    <ColorCollection>#CE0000,#CE9C00,#3300FF,#00CC00,#9900CC,#FF6600,#0099FF</ColorCollection>
+    <GridHorizontalStyle>Solid</GridHorizontalStyle>
+    <GridVerticalStyle>Dot</GridVerticalStyle>
+    <GridHorizontalWidth>1</GridHorizontalWidth>
+    <GridVerticalWidth>1</GridVerticalWidth>
+    <ColorFrame />
+    <FrameBorder />
+    <FormatPriceLine>#,##0</FormatPriceLine>
+    <FormatVolume>#,##0 M</FormatVolume>
+    <FormatDate>M/yyyy</FormatDate>
+    <GradeBackground>false</GradeBackground>
+    <GradeBackwall>false</GradeBackwall>
+    <WaterMark />
+    <WaterMarkTopMargin>100</WaterMarkTopMargin>
+    <WaterMarkLeftMargin>100</WaterMarkLeftMargin>
+    <WaterMarkTransparency>50</WaterMarkTransparency>
+    <PointSize>0.015</PointSize>
+    <StackVariationLabels>false</StackVariationLabels>
+    <ShowAxisLabelInLegend>false</ShowAxisLabelInLegend>
+    <LineWidth>1</LineWidth>
+    <SplitPercent>25</SplitPercent>
+    <ShowHigh>false</ShowHigh>
+    <ShowLow>false</ShowLow>
+    <ShowOpen>false</ShowOpen>
+    <ShowClose>false</ShowClose>
+    <ShowVolume>true</ShowVolume>
+    <ShowUpVariation>false</ShowUpVariation>
+    <ShowDownVariation>false</ShowDownVariation>
+    <ShowLegend>true</ShowLegend>
+    <VariationYear>1</VariationYear>
+    <VolumeDivider>1000000</VolumeDivider>
+    <VolumeTextOffset>-55</VolumeTextOffset>
+    <PriceTextOffset>-55</PriceTextOffset>
+    <FrameType>None</FrameType>
+    <Projection>Orthogonal</Projection>
+    <MarginTop>0</MarginTop>
+    <MarginBottom>0</MarginBottom>
+    <MarginLeft>0</MarginLeft>
+    <MarginRight>0</MarginRight>
+    <FontFamily>Arial</FontFamily>
+    <FontSizeHeader>10</FontSizeHeader>
+    <FontSizeFooter>8</FontSizeFooter>
+    <Height>1</Height>
+    <Width>1</Width>
+    <ZoomPercent>100</ZoomPercent>
+    <LegendBox>true</LegendBox>
+    <ColorLegendBackground>#FFFFFF</ColorLegendBackground>
+    <ColorLegendBorder>#000000</ColorLegendBorder>
+    <LegendVerticalPosition>2</LegendVerticalPosition>
+    <LegendHorizontalPosition>83</LegendHorizontalPosition>
+    <Reload>false</Reload>
+    <ShowPriceChartLabels>true</ShowPriceChartLabels>
+    <TickPrecision>Minute</TickPrecision>
+    <TickPeriods>1</TickPeriods>
+    <WaterMarkHorizontalAlign>Center</WaterMarkHorizontalAlign>
+    <LightScheme>None</LightScheme>
+    <FontSizeLegend>7</FontSizeLegend>
+    <FontSizeAxes>7</FontSizeAxes>
+    <FontSizeTitle>10</FontSizeTitle>
+    <DaysForHourDisplay>1</DaysForHourDisplay>
+    <DaysForDayDisplay>14</DaysForDayDisplay>
+    <DaysForWeekDisplay>62</DaysForWeekDisplay>
+    <DaysForBiWeeklyDisplay>93</DaysForBiWeeklyDisplay>
+    <DaysForMonthDisplay>186</DaysForMonthDisplay>
+    <DaysForQuarterDisplay>372</DaysForQuarterDisplay>
+    <DaysForSemiAnnualDisplay>1116</DaysForSemiAnnualDisplay>
+    <DaysForAnnualDisplay>1116</DaysForAnnualDisplay>
+    <DaysForBiAnnualDisplay>3720</DaysForBiAnnualDisplay>
+    <DaysForPentaAnnualDisplay>9300</DaysForPentaAnnualDisplay>
+  </Design>
+  <PeriodType>Daily</PeriodType>
+  <StartDate>10/2/2010</StartDate>
+  <EndDate>10/2/2011</EndDate>
+  <Width>600</Width>
+  <Height>400</Height>
+  <Style>Line</Style>
+  <Url>https://filecache.xignite.com/xGetFile.aspx?key=w7gTwyUIxz79xiu5hF/iIEu2AJTBWAmlphMfXRvuRqckPEz/CI+Cd9YkPQBJbL2d4vw+ESpXe/8arDnq+NL82DIo+NV2toEe</Url>
+</HistoricalChart>
