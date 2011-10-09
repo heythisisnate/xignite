@@ -34,6 +34,38 @@ describe Xignite::Service do
         end
       end
 
+      describe "when a username is set" do
+        before do
+          Xignite.configure{|c| c.username = 'nate@goldbugapp.com' }
+          @stub = stub_request(:post, 'http://www.xignite.com/xMetals.asmx/GetLastLondonFixing').to_return(:status => 200, :body => "").with('Header_Username' => 'nate@goldbugapp.com')
+        end
+
+        after do
+          Xignite.configure{|c| c.username = nil }
+        end
+        
+        it "makes the request and returns an instance of the service object" do
+          Xignite::Metals::GetLastLondonFixing.post.should be_a(Xignite::Metals::GetLastLondonFixing)
+          @stub.should have_been_requested
+        end
+      end
+
+      describe "when a HTTPS is set" do
+        before do
+          Xignite.configure{|c| c.https = true }
+          @stub = stub_request(:post, 'https://www.xignite.com/xMetals.asmx/GetLastLondonFixing').to_return(:status => 200, :body => "")
+        end
+
+        after do
+          Xignite.configure{|c| c.https = false }
+        end
+
+        it "makes the request and returns an instance of the service object" do
+          Xignite::Metals::GetLastLondonFixing.post.should be_a(Xignite::Metals::GetLastLondonFixing)
+          @stub.should have_been_requested
+        end
+      end
+
     end
 
     context "with params" do
@@ -93,6 +125,23 @@ describe Xignite::Service do
           @stub.should have_been_requested
         end
       end
+
+      describe "when a username is set" do
+        before do
+          Xignite.configure{|c| c.username = 'nate@goldbugapp.com' }
+          @stub = stub_request(:get, 'http://www.xignite.com/xMetals.asmx/GetLastLondonFixing?Header_Username=nate@goldbugapp.com').to_return(:status => 200, :body => "")
+        end
+
+        after do
+          Xignite.configure{|c| c.username = nil }
+        end
+
+        it "makes the request and returns an instance of the service object" do
+          Xignite::Metals::GetLastLondonFixing.get.should be_a(Xignite::Metals::GetLastLondonFixing)
+          @stub.should have_been_requested
+        end
+      end
+
 
     end
 

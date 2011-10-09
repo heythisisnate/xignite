@@ -17,7 +17,7 @@ module Xignite
       end
 
       def get(options={})
-        options.merge!('Header_Username' => Xignite.configuration.username) if Xignite.configuration.username
+        options = options.merge('Header_Username' => Xignite.configuration.username) if Xignite.configuration.username
         querystring = options.map do |key, value|
           "#{CGI.escape(key.to_s).gsub(/%(5B|5D)/n) { [$1].pack('H*') }}=#{CGI.escape(value)}"
         end.sort * '&'
@@ -29,7 +29,7 @@ module Xignite
       
       def endpoint
         names = name.split('::')
-        "#{Xignite.configuration.endpoint}/x#{names[1]}.asmx/#{names[2]}"
+        "#{protocol}://#{Xignite.configuration.endpoint}/x#{names[1]}.asmx/#{names[2]}"
       end
 
       def protocol

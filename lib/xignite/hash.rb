@@ -5,6 +5,7 @@ module Xignite
     def self.build(data, options={})
       new.tap do |obj|
         data.each do |k, v|
+          v = self.build(v, options) if v.class.name == 'Hash'
           obj[underscore(k)] = case v
             when /^[\d,\.]+$/
               v.to_f

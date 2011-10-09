@@ -14,6 +14,7 @@ describe Xignite::Currencies::GetRealTimeCrossRate do
       rate = subject.cross_rate
       rate.should be_a(Xignite::CrossRate)
       rate.should be_kind_of(Hash)
+      rate['to']['symbol'].should == 'EUR'
     end
   end
 
