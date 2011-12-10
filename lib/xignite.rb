@@ -1,5 +1,6 @@
 require 'cgi'
 require 'crack'
+require 'multi_json'
 require 'curl'
 require 'tzinfo'
 require 'xignite/configuration'

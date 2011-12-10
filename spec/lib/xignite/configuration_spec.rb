@@ -5,4 +5,5 @@ describe Xignite::Configuration do
   its(:https) { should be_false }
   its(:endpoint) { should == 'www.xignite.com' }
   its(:request_method) { should == :get }
+  its(:format) { should == :xml }
 end

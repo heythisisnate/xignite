@@ -1,0 +1,49 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://www.xignite.com/xMetals.asmx/GetLastLondonFixing?Currency=USD&Header_Username=nate@nateclark.com&Type=LondonGold
+    body: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Cache-Control: 
+      - private, max-age=0
+      Content-Type: 
+      - text/xml; charset=utf-8
+      Vary: 
+      - Accept-Encoding
+      Server: 
+      - Microsoft-IIS/7.5
+      Set-Cookie: 
+      - .ASPXXigniteANONYMOUS=8-cN_BTuzAEkAAAAODJmZmIxZDYtNDFlNy00NzhjLWE3ODMtNGI3MjRjOTAwMzhkZm1nrmeG2Vv_3ZlfzbgAIpvus8Y1; expires=Sat, 18-Feb-2012 08:11:58 GMT; path=/; HttpOnly
+      X-Powered-By: 
+      - ASP.NET
+      Date: 
+      - Sat, 10 Dec 2011 21:31:58 GMT
+      Connection: 
+      - close
+      Content-Length: 
+      - "529"
+    body: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <LondonFixing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+        <Outcome>Success</Outcome>
+        <Identity>Request</Identity>
+        <Delay>0.001</Delay>
+        <Type>LondonGold</Type>
+        <Symbol>AU</Symbol>
+        <Currency>USD</Currency>
+        <Period>Evening</Period>
+        <Date>12/9/2011</Date>
+        <Value>1709</Value>
+        <Unit>oz</Unit>
+        <Source>The London Bullion Market Association</Source>
+      </LondonFixing>
+    http_version: 
+  recorded_at: Sat, 10 Dec 2011 21:32:08 GMT
+recorded_with: VCR 2.0.0.rc1

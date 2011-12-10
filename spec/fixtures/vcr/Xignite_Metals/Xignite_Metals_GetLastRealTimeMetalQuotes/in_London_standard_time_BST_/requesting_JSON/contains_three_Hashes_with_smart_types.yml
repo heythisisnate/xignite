@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.xignite.com/xMetals.json/GetLastRealTimeMetalQuotes?Currency=USD&Header_Username=nate@nateclark.com&Types=XAU,XAG,XPT
+    body: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      Set-Cookie:
+      - .ASPXXigniteANONYMOUS=hx-ssBzuzAEkAAAAOTQwMjA5YWItNTM5Ny00ZWVlLWE0NzktYjljY2U4NDMzMzYxPpfKmcPwVsyJBIo6ADLmrM0M35Q1;
+        expires=Sat, 18-Feb-2012 09:07:07 GMT; path=/; HttpOnly
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Sat, 10 Dec 2011 22:27:07 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '813'
+    body: ! '[ {"Symbol":"XAUUSDO", "Type":"XAU", "Currency":"USD", "Date":"12\/9\/2011",
+      "Time":"10:59:52 PM", "Rate":1711.42498779, "Bid":1710.69995117, "BidTime":"10:59:52
+      PM", "Ask":1712.15002441, "AskTime":"10:59:52 PM", "Outcome":"Success", "Message":null,
+      "Identity":"Request", "Delay":0.012001}, {"Symbol":"XAGUSDO", "Type":"XAG",
+      "Currency":"USD", "Date":"12\/9\/2011", "Time":"10:59:59 PM", "Rate":32.1950016,
+      "Bid":32.16400146, "BidTime":"10:59:59 PM", "Ask":32.22600174, "AskTime":"10:59:59
+      PM", "Outcome":"Success", "Message":null, "Identity":null, "Delay":0}, {"Symbol":"XPTUSDO",
+      "Type":"XPT", "Currency":"USD", "Date":"12\/9\/2011", "Time":"10:15:42 PM",
+      "Rate":1515.5, "Bid":1511, "BidTime":"10:15:42 PM", "Ask":1520, "AskTime":"10:15:42
+      PM", "Outcome":"Success", "Message":null, "Identity":null, "Delay":0} ]'
+    http_version: !!null 
+  recorded_at: Sat, 10 Dec 2011 22:27:07 GMT
+recorded_with: VCR 2.0.0.rc1

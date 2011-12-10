@@ -1,0 +1,16 @@
+{
+  "Symbol":"XAUUSDO",
+  "Type":"XAU",
+  "Currency":"USD",
+  "Date":"12/9/2011",
+  "Time":"10:59:52 PM",
+  "Rate":1711.42498779,
+  "Bid":1710.69995117,
+  "BidTime":"10:59:52 PM",
+  "Ask":1712.15002441,
+  "AskTime":"10:59:52 PM",
+  "Outcome":"Success",
+  "Message":null,
+  "Identity":"Request",
+  "Delay":0.004
+}

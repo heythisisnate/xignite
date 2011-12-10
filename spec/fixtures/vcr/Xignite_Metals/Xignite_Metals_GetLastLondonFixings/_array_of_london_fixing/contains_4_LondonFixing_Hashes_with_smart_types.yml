@@ -1,0 +1,90 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://www.xignite.com/xMetals.asmx/GetLastLondonFixings?Currency=USD&Header_Username=nate@nateclark.com
+    body: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Cache-Control: 
+      - private, max-age=0
+      Content-Type: 
+      - text/xml; charset=utf-8
+      Vary: 
+      - Accept-Encoding
+      Server: 
+      - Microsoft-IIS/7.0
+      Set-Cookie: 
+      - .ASPXXigniteANONYMOUS=VVCXAhXuzAEkAAAANzY3YzAxZjEtNTliOS00NjAxLWJkNGQtMjU1YmE2ZTVhNzZhAdiRchmT0X0BA46Fgo8mcMiaZFo1; expires=Sat, 18-Feb-2012 08:12:09 GMT; path=/; HttpOnly
+      X-Powered-By: 
+      - ASP.NET
+      Date: 
+      - Sat, 10 Dec 2011 21:32:08 GMT
+      Connection: 
+      - close
+      Content-Length: 
+      - "1747"
+    body: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <ArrayOfLondonFixing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+        <LondonFixing>
+          <Outcome>Success</Outcome>
+          <Identity>Request</Identity>
+          <Delay>0.009</Delay>
+          <Type>LondonGold</Type>
+          <Symbol>AU</Symbol>
+          <Currency>USD</Currency>
+          <Period>Evening</Period>
+          <Date>12/9/2011</Date>
+          <Value>1709</Value>
+          <Unit>oz</Unit>
+          <Source>The London Bullion Market Association</Source>
+        </LondonFixing>
+        <LondonFixing>
+          <Outcome>Success</Outcome>
+          <Identity>Request</Identity>
+          <Delay>0.001</Delay>
+          <Type>LondonSilver</Type>
+          <Symbol>AG</Symbol>
+          <Currency>USD</Currency>
+          <Period>Evening</Period>
+          <Date>12/9/2011</Date>
+          <Value>32</Value>
+          <Unit>oz</Unit>
+          <Source>The London Bullion Market Association</Source>
+        </LondonFixing>
+        <LondonFixing>
+          <Outcome>Success</Outcome>
+          <Identity>Request</Identity>
+          <Delay>0</Delay>
+          <Type>LondonPlatinum</Type>
+          <Symbol>PT</Symbol>
+          <Currency>USD</Currency>
+          <Period>Evening</Period>
+          <Date>12/9/2011</Date>
+          <Value>1496</Value>
+          <Unit>oz</Unit>
+          <Source>The London Platinum &amp; Palladium Market</Source>
+        </LondonFixing>
+        <LondonFixing>
+          <Outcome>Success</Outcome>
+          <Identity>Request</Identity>
+          <Delay>0.001</Delay>
+          <Type>LondonPalladium</Type>
+          <Symbol>PD</Symbol>
+          <Currency>USD</Currency>
+          <Period>Evening</Period>
+          <Date>12/9/2011</Date>
+          <Value>670</Value>
+          <Unit>oz</Unit>
+          <Source>The London Platinum &amp; Palladium Market</Source>
+        </LondonFixing>
+      </ArrayOfLondonFixing>
+    http_version: 
+  recorded_at: Sat, 10 Dec 2011 21:32:09 GMT
+recorded_with: VCR 2.0.0.rc1

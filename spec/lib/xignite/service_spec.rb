@@ -142,6 +142,22 @@ describe Xignite::Service do
         end
       end
 
+      describe "when requesting JSON" do
+        before do
+          Xignite.configure{|c| c.format = :json }
+          @stub = stub_request(:get, 'http://www.xignite.com/xMetals.json/GetLastLondonFixing').to_return(:status => 200, :body => "{}")
+        end
+
+        after do
+          Xignite.configure{|c| c.format = :xml }
+        end
+
+        it "makes the request and returns an instance of the service object" do
+          Xignite::Metals::GetLastLondonFixing.get.should be_a(Xignite::Metals::GetLastLondonFixing)
+          @stub.should have_been_requested
+        end
+      end
+
 
     end
 

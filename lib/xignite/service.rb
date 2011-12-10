@@ -29,11 +29,22 @@ module Xignite
       
       def endpoint
         names = name.split('::')
-        "#{protocol}://#{Xignite.configuration.endpoint}/x#{names[1]}.asmx/#{names[2]}"
+        "#{protocol}://#{Xignite.configuration.endpoint}/x#{names[1]}.#{format}/#{names[2]}"
       end
 
       def protocol
         Xignite.configuration.https ? 'https' : 'http'
+      end
+
+      def format
+        case Xignite.configuration.format
+          when :json
+            'json'
+          when :xml
+            'asmx'
+          else
+            'asmx'
+        end
       end
 
       def operations(ops)
@@ -55,11 +66,21 @@ module Xignite
 
     def initialize(curl_response=nil)
       return super if curl_response.nil?
-      Crack::XML.parse(curl_response.body_str).each do |klass, data|
-        data = weed(data)
-        Xignite.const_set(klass, Class.new(Xignite.const_get(data.class.to_s))) unless Xignite.const_defined?(klass)
-        instance_variable_set("@#{underscore(klass)}", Xignite.const_get(klass).build(data, self.class.options))
-        instance_eval "def #{underscore(klass)} ; @#{underscore(klass)} ; end"
+      @raw = curl_response.body_str
+      if Xignite.configuration.format == :json
+        data = MultiJson.decode(@raw)
+        if data.class.name == 'Array'
+          build_collection(data)
+        else
+          weed(data)
+        end
+      else
+        Crack::XML.parse(@raw).each do |klass, data|
+          data = weed(data)
+          Xignite.const_set(klass, Class.new(Xignite.const_get(data.class.to_s))) unless Xignite.const_defined?(klass)
+          instance_variable_set("@#{underscore(klass)}", Xignite.const_get(klass).build(data, self.class.options))
+          instance_eval "def #{underscore(klass)} ; @#{underscore(klass)} ; end"
+        end
       end
     end
 
@@ -71,11 +92,15 @@ module Xignite
       array = data[key]
       if data.keys.size == 1 && array.class == ::Array
         Xignite.const_set(key, Class.new(Xignite::Hash)) unless Xignite.const_defined?(key)
-        array.map do |hash|
-          Xignite.const_get(key).build(hash, self.class.options)
-        end
+        build_collection(array, Xignite.const_get(key))
       else
         data
+      end
+    end
+
+    def build_collection(array, klass = Xignite::Hash)
+      array.map do |hash|
+        klass.build(hash, self.class.options)
       end
     end
   end

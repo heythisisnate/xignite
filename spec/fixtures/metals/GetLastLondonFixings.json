@@ -1,0 +1,62 @@
+[
+  {
+    "Type":"LondonGold",
+    "Symbol":"AU",
+    "Currency":"USD",
+    "Period":"Evening",
+    "Date":"12/9/2011",
+    "Value":1709,
+    "Text":null,
+    "Unit":"oz",
+    "Source":"The London Bullion Market Association",
+    "Outcome":"Success",
+    "Message":null,
+    "Identity":"Request",
+    "Delay":0.012
+  },
+  {
+    "Type":"LondonSilver",
+    "Symbol":"AG",
+    "Currency":"USD",
+    "Period":"Evening",
+    "Date":"12/9/2011",
+    "Value":32,
+    "Text":null,
+    "Unit":"oz",
+    "Source":"The London Bullion Market Association",
+    "Outcome":"Success",
+    "Message":null,
+    "Identity":"Request",
+    "Delay":0.001
+  },
+  {
+    "Type":"LondonPlatinum",
+    "Symbol":"PT",
+    "Currency":"USD",
+    "Period":"Evening",
+    "Date":"12/9/2011",
+    "Value":1496,
+    "Text":null,
+    "Unit":"oz",
+    "Source":"The London Platinum & Palladium Market",
+    "Outcome":"Success",
+    "Message":null,
+    "Identity":"Request",
+    "Delay":0.001
+  },
+  {
+    "Type":"LondonPalladium",
+    "Symbol":"PD",
+    "Currency":"USD",
+    "Period":"Evening",
+    "Date":"12/9/2011",
+    "Value":670,
+    "Text":null,
+    "Unit":"oz",
+    "Source":"The London Platinum & Palladium Market",
+    "Outcome":"Success",
+    "Message":null,
+    "Identity":"Request",
+    "Delay":0.001
+  }
+]

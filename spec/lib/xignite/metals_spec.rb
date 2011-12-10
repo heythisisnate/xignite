@@ -1,18 +1,16 @@
 require 'spec_helper'
 
-describe Xignite::Metals do
-  before do
-    stub_request(:post, url).to_return(:status => 200, :body => body)
-  end
+describe Xignite::Metals, :vcr do
 
   describe Xignite::Metals::GetLastRealTimeMetalQuotes do
-    subject { Xignite::Metals::GetLastRealTimeMetalQuotes.post }
-    let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuotes' }
+    subject { Xignite::Metals::GetLastRealTimeMetalQuotes.get('Types' => 'XAU,XAG,XPT', 'Currency' => 'USD') }
 
     context "in London standard time (BST)" do
-      let(:body) { fixture_file('metals/GetLastRealTimeMetalQuotes.xml') }
+      describe "requesting XML" do
+        before do
+          Xignite.configuration.format = :xml
+        end
 
-      describe "#array_of_metal_quote" do
         it "automatically defines the response classes" do
           subject
           defined?(Xignite::ArrayOfMetalQuote).should be_true
@@ -31,7 +29,6 @@ describe Xignite::Metals do
             item.should             be_a(Xignite::MetalQuote)
             item.should             be_kind_of(Hash)
             item['outcome'].should  be_a(String)
-            item['identity'].should be_a(String)
             item['delay'].should    be_a(Float)
             item['symbol'].should   be_a(String)
             item['currency'].should be_a(String)
@@ -47,31 +44,58 @@ describe Xignite::Metals do
 
         it "maintains data integrity" do
           quote = subject.array_of_metal_quote.first
-          quote['outcome'].should  == 'Success'
-          quote['identity'].should == 'Request'
-          quote['delay'].should    == 0.015625
-          quote['symbol'].should   == 'XAUUSDO'
-          quote['type'].should     == 'XAU'
-          quote['currency'].should == 'USD'
-          quote['date'].should     == Date.new(2010, 1, 22)
-          quote['time'].should     == Time.new(2010, 1, 22, 22, 15, 15, 0)
-          quote['rate'].should     == 1092.59997559
-          quote['bid'].should      == 1091.59997559
-          quote['bid_time'].should == Time.new(2010, 1, 22, 22, 15, 15, 0)
-          quote['ask'].should      == 1093.59997559
-          quote['ask_time'].should == Time.new(2010, 1, 22, 22, 15, 15, 0)
+          raw = Crack::XML.parse(subject.instance_variable_get(:@raw))
+          quote['outcome'].should  == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Outcome']
+          quote['identity'].should == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Identity']
+          quote['delay'].should    == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Delay'].to_f
+          quote['symbol'].should   == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Symbol']
+          quote['type'].should     == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Type']
+          quote['currency'].should == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Currency']
+          quote['rate'].should     == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Rate'].to_f
+          quote['bid'].should      == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Bid'].to_f
+          quote['ask'].should      == raw['ArrayOfMetalQuote']['MetalQuote'][0]['Ask'].to_f
         end
 
         it "parses the time in the correct time zone" do
-          subject.array_of_metal_quote.first['time'].should == Time.strptime("1/22/2010 10:15:15 PM +00:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
+          raw_data = Crack::XML.parse(subject.instance_variable_get(:@raw))
+          date, time = raw_data['ArrayOfMetalQuote']['MetalQuote'][0]['Date'], raw_data['ArrayOfMetalQuote']['MetalQuote'][0]['Time']
+          subject.array_of_metal_quote.first['time'].should == Time.strptime("#{date} #{time} +00:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
         end
+      end
+
+      describe "requesting JSON" do
+        before do
+          Xignite.configure{|c| c.format = :json }
+        end
+
+        after do
+          Xignite.configure{|c| c.format = :xml }
+        end
+
+        it "contains three Hashes with smart types" do
+          subject.should be_kind_of(Array)
+          subject.should have(3).items
+          subject.each do |item|
+            item.should             be_kind_of(Hash)
+            item['outcome'].should  be_a(String)
+            item['delay'].should    be_a(Float)
+            item['symbol'].should   be_a(String)
+            item['currency'].should be_a(String)
+            item['date'].should     be_a(Date)
+            item['time'].should     be_a(Time)
+            item['rate'].should     be_a(Float)
+            item['bid'].should      be_a(Float)
+            item['ask'].should      be_a(Float)
+            item['bid_time'].should be_a(Time)
+            item['ask_time'].should be_a(Time)
+          end
+        end
+
       end
 
     end
 
     context "in London Daylight time (BDT)" do
-      let(:body) { fixture_file('metals/GetLastRealTimeMetalQuotes-BDT.xml') }
-
       describe "#array_of_metal_quote" do
         it "parses the time in the correct time zone" do
           subject.array_of_metal_quote.first['time'].should == Time.strptime("5/6/2011 10:59:56 PM +01:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
@@ -81,9 +105,7 @@ describe Xignite::Metals do
   end
 
   describe Xignite::Metals::GetLastRealTimeMetalQuoteGMT do
-    subject { Xignite::Metals::GetLastRealTimeMetalQuoteGMT.post }
-    let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuoteGMT' }
-    let(:body) { fixture_file('metals/GetLastRealTimeMetalQuoteGMT.xml') }
+    subject { Xignite::Metals::GetLastRealTimeMetalQuoteGMT.get('Type' => 'XAU', 'Currency' => 'USD') }
     let(:item) { subject.metal_quote }
 
     describe "#metal_quote" do
@@ -105,15 +127,15 @@ describe Xignite::Metals do
       end
 
       it "parses times in GMT time" do
-        item['time'].should == Time.new(2011, 9, 30, 21, 59, 56, 0)
+        raw_data = Crack::XML.parse(subject.instance_variable_get(:@raw))
+        date, time = raw_data['MetalQuote']['Date'], raw_data['MetalQuote']['Time']
+        item['time'].should ==Time.strptime("#{date} #{time} +00:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
       end
     end
   end
 
   describe Xignite::Metals::GetLastLondonFixing do
-    subject { Xignite::Metals::GetLastLondonFixing.post }
-    let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastLondonFixing' }
-    let(:body) { fixture_file('metals/GetLastLondonFixing.xml') }
+    subject { Xignite::Metals::GetLastLondonFixing.get('Type' => 'LondonGold', 'Currency' => 'USD') }
 
     describe "#london_fixing" do
       it "returns a LondonFixing Hash with smart types" do
@@ -134,27 +156,11 @@ describe Xignite::Metals do
         item['source'].should   be_a(String)
       end
 
-      it "maintains data integrity" do
-        item = subject.london_fixing
-        item['outcome'].should  == 'Success'
-        item['identity'].should == 'Cookie'
-        item['delay'].should    == 0.001
-        item['type'].should     == 'LondonGold'
-        item['symbol'].should   == 'AU'
-        item['currency'].should == 'USD'
-        item['period'].should   == 'Evening'
-        item['date'].should     == Date.new(2011, 9, 30)
-        item['value'].should    == 1620.0
-        item['unit'].should     == 'oz'
-        item['source'].should   == 'The London Bullion Market Association'
-      end
     end
   end
 
   describe Xignite::Metals::GetLastLondonFixings do
-    subject { Xignite::Metals::GetLastLondonFixings.post }
-    let(:url) { 'http://www.xignite.com/xMetals.asmx/GetLastLondonFixings' }
-    let(:body) { fixture_file('metals/GetLastLondonFixings.xml') }
+    subject { Xignite::Metals::GetLastLondonFixings.get('Currency' => 'USD') }
 
     describe "#array_of_london_fixing" do
       it "is automatically defined" do
@@ -184,9 +190,28 @@ describe Xignite::Metals do
   end
 
   describe Xignite::Metals::GetMetalSpotChart do
-    subject { Xignite::Metals::GetMetalSpotChart.post }
-    let(:url) { 'http://www.xignite.com/xMetals.asmx/GetMetalSpotChart' }
-    let(:body) { fixture_file('metals/GetMetalSpotChart.xml') }
+    subject {
+      Xignite::Metals::GetMetalSpotChart.get(
+        'Type' => 'XAU',
+        'Currency' => 'USD',
+        'StartDate' => '12/07/2011',
+        'EndDate' => '12/08/2011',
+        'Style' => 'Line',
+        'DaysForHourDisplay' => '1',
+        'DaysForDayDisplay' => '14',
+        'DaysForWeekDisplay' => '62',
+        'DaysForBiWeeklyDisplay' => '91',
+        'DaysForMonthDisplay' => '186',
+        'DaysForQuarterDisplay' => '365',
+        'DaysForSemiAnnualDisplay' => '1000',
+        'DaysForAnnualDisplay' => '1000',
+        'DaysForBiAnnualDisplay' => '14',
+        'DaysForPentaAnnualDisplay' => '3500',
+        'Width' => '600',
+        'Height' => '400',
+        'Preset' => 'Demo'
+      )
+    }
 
     describe "#historical_chart" do
       it "is automatically defined" do

@@ -1,0 +1,15 @@
+{
+  "Type":"LondonGold",
+  "Symbol":"AU",
+  "Currency":"USD",
+  "Period":"Evening",
+  "Date":"12/9/2011",
+  "Value":1709,
+  "Text":null,
+  "Unit":"oz",
+  "Source":"The London Bullion Market Association",
+  "Outcome":"Success",
+  "Message":null,
+  "Identity":"Request",
+  "Delay":0.001
+}

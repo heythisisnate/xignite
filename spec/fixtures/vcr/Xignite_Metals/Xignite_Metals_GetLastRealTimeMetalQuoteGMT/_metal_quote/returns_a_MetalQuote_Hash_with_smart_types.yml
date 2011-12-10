@@ -1,0 +1,51 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuoteGMT?Currency=USD&Header_Username=nate@nateclark.com&Type=XAU
+    body: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Cache-Control: 
+      - private, max-age=0
+      Content-Type: 
+      - text/xml; charset=utf-8
+      Vary: 
+      - Accept-Encoding
+      Server: 
+      - Microsoft-IIS/7.5
+      Set-Cookie: 
+      - .ASPXXigniteANONYMOUS=X1Wp_RTuzAEkAAAAMzliMzc4MGItYmYyNy00MTY0LWI5ZTQtZTAwZTU5MzIzZTVjwsAOZFhTRAOVoTydQczahc1zg_o1; expires=Sat, 18-Feb-2012 08:12:00 GMT; path=/; HttpOnly
+      X-Powered-By: 
+      - ASP.NET
+      Date: 
+      - Sat, 10 Dec 2011 21:32:00 GMT
+      Connection: 
+      - close
+      Content-Length: 
+      - "577"
+    body: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <MetalQuote xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.xignite.com/services/">
+        <Outcome>Success</Outcome>
+        <Identity>Request</Identity>
+        <Delay>0.006</Delay>
+        <Symbol>XAUUSDO</Symbol>
+        <Type>XAU</Type>
+        <Currency>USD</Currency>
+        <Date>12/9/2011</Date>
+        <Time>10:59:52 PM</Time>
+        <Rate>1711.42498779</Rate>
+        <Bid>1710.69995117</Bid>
+        <BidTime>10:59:52 PM</BidTime>
+        <Ask>1712.15002441</Ask>
+        <AskTime>10:59:52 PM</AskTime>
+      </MetalQuote>
+    http_version: 
+  recorded_at: Sat, 10 Dec 2011 21:32:07 GMT
+recorded_with: VCR 2.0.0.rc1

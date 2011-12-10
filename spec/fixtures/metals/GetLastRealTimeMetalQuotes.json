@@ -1,0 +1,50 @@
+[
+  {
+    "Symbol":"XAUUSDO",
+    "Type":"XAU",
+    "Currency":"USD",
+    "Date":"12\/9\/2011",
+    "Time":"10:59:52 PM",
+    "Rate":1711.42498779,
+    "Bid":1710.69995117,
+    "BidTime":"10:59:52 PM",
+    "Ask":1712.15002441,
+    "AskTime":"10:59:52 PM",
+    "Outcome":"Success",
+    "Message":null,
+    "Identity":"Request",
+    "Delay":0.012001
+  },
+  {
+    "Symbol":"XAGUSDO",
+    "Type":"XAG",
+    "Currency":"USD",
+    "Date":"12\/9\/2011",
+    "Time":"10:59:59 PM",
+    "Rate":32.1950016,
+    "Bid":32.16400146,
+    "BidTime":"10:59:59 PM",
+    "Ask":32.22600174,
+    "AskTime":"10:59:59 PM",
+    "Outcome":"Success",
+    "Message":null,
+    "Identity":null,
+    "Delay":0
+  },
+  {
+    "Symbol":"XPTUSDO",
+    "Type":"XPT",
+    "Currency":"USD",
+    "Date":"12\/9\/2011",
+    "Time":"10:15:42 PM",
+    "Rate":1515.5,
+    "Bid":1511,
+    "BidTime":"10:15:42 PM",
+    "Ask":1520,
+    "AskTime":"10:15:42 PM",
+    "Outcome":"Success",
+    "Message":null,
+    "Identity":null,
+    "Delay":0
+  }
+]

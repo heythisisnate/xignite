@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.xignite.com/xMetals.asmx/GetLastRealTimeMetalQuotes?Currency=USD&Header_Username=nate@nateclark.com&Types=XAU,XAG,XPT
+    body: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      Set-Cookie:
+      - .ASPXXigniteANONYMOUS=0x3dCRzuzAEkAAAANTY1NWFmNjctMTVkYS00ODRjLTgzMmUtNjJiOWNjNDJlNGE1Pkt7HNSNe7h2UCWfj8tyzkbZAH41;
+        expires=Sat, 18-Feb-2012 09:02:27 GMT; path=/; HttpOnly
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Sat, 10 Dec 2011 22:22:27 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '1403'
+    body: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ArrayOfMetalQuote xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+      xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.xignite.com/services/\">\r\n
+      \ <MetalQuote>\r\n    <Outcome>Success</Outcome>\r\n    <Identity>Request</Identity>\r\n
+      \   <Delay>0.011001</Delay>\r\n    <Symbol>XAUUSDO</Symbol>\r\n    <Type>XAU</Type>\r\n
+      \   <Currency>USD</Currency>\r\n    <Date>12/9/2011</Date>\r\n    <Time>10:59:52
+      PM</Time>\r\n    <Rate>1711.42498779</Rate>\r\n    <Bid>1710.69995117</Bid>\r\n
+      \   <BidTime>10:59:52 PM</BidTime>\r\n    <Ask>1712.15002441</Ask>\r\n    <AskTime>10:59:52
+      PM</AskTime>\r\n  </MetalQuote>\r\n  <MetalQuote>\r\n    <Outcome>Success</Outcome>\r\n
+      \   <Delay>0</Delay>\r\n    <Symbol>XAGUSDO</Symbol>\r\n    <Type>XAG</Type>\r\n
+      \   <Currency>USD</Currency>\r\n    <Date>12/9/2011</Date>\r\n    <Time>10:59:59
+      PM</Time>\r\n    <Rate>32.1950016</Rate>\r\n    <Bid>32.16400146</Bid>\r\n    <BidTime>10:59:59
+      PM</BidTime>\r\n    <Ask>32.22600174</Ask>\r\n    <AskTime>10:59:59 PM</AskTime>\r\n
+      \ </MetalQuote>\r\n  <MetalQuote>\r\n    <Outcome>Success</Outcome>\r\n    <Delay>0</Delay>\r\n
+      \   <Symbol>XPTUSDO</Symbol>\r\n    <Type>XPT</Type>\r\n    <Currency>USD</Currency>\r\n
+      \   <Date>12/9/2011</Date>\r\n    <Time>10:15:42 PM</Time>\r\n    <Rate>1515.5</Rate>\r\n
+      \   <Bid>1511</Bid>\r\n    <BidTime>10:15:42 PM</BidTime>\r\n    <Ask>1520</Ask>\r\n
+      \   <AskTime>10:15:42 PM</AskTime>\r\n  </MetalQuote>\r\n</ArrayOfMetalQuote>"
+    http_version: !!null 
+  recorded_at: Sat, 10 Dec 2011 22:22:34 GMT
+recorded_with: VCR 2.0.0.rc1
