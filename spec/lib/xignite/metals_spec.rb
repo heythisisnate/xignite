@@ -36,12 +36,12 @@ describe Xignite::Metals do
             item['symbol'].should   be_a(String)
             item['currency'].should be_a(String)
             item['date'].should     be_a(Date)
-            item['time'].should     be_a(Time)
+            item['time'].should     be_a(DateTime)
             item['rate'].should     be_a(Float)
             item['bid'].should      be_a(Float)
             item['ask'].should      be_a(Float)
-            item['bid_time'].should be_a(Time)
-            item['ask_time'].should be_a(Time)
+            item['bid_time'].should be_a(DateTime)
+            item['ask_time'].should be_a(DateTime)
           end
         end
 
@@ -54,16 +54,16 @@ describe Xignite::Metals do
           quote['type'].should     == 'XAU'
           quote['currency'].should == 'USD'
           quote['date'].should     == Date.new(2010, 1, 22)
-          quote['time'].should     == Time.new(2010, 1, 22, 22, 15, 15, 0)
+          quote['time'].should     == DateTime.new(2010, 1, 22, 22, 15, 15, 0)
           quote['rate'].should     == 1092.59997559
           quote['bid'].should      == 1091.59997559
-          quote['bid_time'].should == Time.new(2010, 1, 22, 22, 15, 15, 0)
+          quote['bid_time'].should == DateTime.new(2010, 1, 22, 22, 15, 15, 0)
           quote['ask'].should      == 1093.59997559
-          quote['ask_time'].should == Time.new(2010, 1, 22, 22, 15, 15, 0)
+          quote['ask_time'].should == DateTime.new(2010, 1, 22, 22, 15, 15, 0)
         end
 
         it "parses the time in the correct time zone" do
-          subject.array_of_metal_quote.first['time'].should == Time.strptime("1/22/2010 10:15:15 PM +00:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
+          subject.array_of_metal_quote.first['time'].should == DateTime.strptime("1/22/2010 10:15:15 PM +00:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
         end
       end
 
@@ -74,7 +74,7 @@ describe Xignite::Metals do
 
       describe "#array_of_metal_quote" do
         it "parses the time in the correct time zone" do
-          subject.array_of_metal_quote.first['time'].should == Time.strptime("5/6/2011 10:59:56 PM +01:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
+          subject.array_of_metal_quote.first['time'].should == DateTime.strptime("5/6/2011 10:59:56 PM +01:00", "#{Xignite::DATE_FORMAT} #{Xignite::TIME_FORMAT} %z")
         end
       end
     end
@@ -96,16 +96,16 @@ describe Xignite::Metals do
         item['symbol'].should   be_a(String)
         item['currency'].should be_a(String)
         item['date'].should     be_a(Date)
-        item['time'].should     be_a(Time)
+        item['time'].should     be_a(DateTime)
         item['rate'].should     be_a(Float)
         item['bid'].should      be_a(Float)
         item['ask'].should      be_a(Float)
-        item['bid_time'].should be_a(Time)
-        item['ask_time'].should be_a(Time)
+        item['bid_time'].should be_a(DateTime)
+        item['ask_time'].should be_a(DateTime)
       end
 
       it "parses times in GMT time" do
-        item['time'].should == Time.new(2011, 9, 30, 21, 59, 56, 0)
+        item['time'].should == DateTime.new(2011, 9, 30, 21, 59, 56, 0)
       end
     end
   end

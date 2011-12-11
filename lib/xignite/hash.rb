@@ -13,7 +13,7 @@ module Xignite
               Date.strptime(v, '%m/%d/%Y')
             when /^\d+:\d+:\d+ [APM]{2}$/
               tz = ::TZInfo::Timezone.get(options[:timezone] || 'GMT')
-              tz.local_to_utc(Time.strptime("#{data['Date']} #{v}", "#{DATE_FORMAT} #{TIME_FORMAT}"))
+              tz.local_to_utc(DateTime.strptime("#{data['Date']} #{v}", "#{DATE_FORMAT} #{TIME_FORMAT}"))
             else
               v
           end

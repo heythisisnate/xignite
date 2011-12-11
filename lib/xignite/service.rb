@@ -54,7 +54,7 @@ module Xignite
     end
 
     def initialize(curl_response=nil)
-      return super if curl_response.nil?
+      return if curl_response.nil?
       Crack::XML.parse(curl_response.body_str).each do |klass, data|
         data = weed(data)
         Xignite.const_set(klass, Class.new(Xignite.const_get(data.class.to_s))) unless Xignite.const_defined?(klass)
@@ -66,7 +66,7 @@ module Xignite
     private
 
     def weed(data)
-      data.reject! { |key| key =~ /\Axmlns/ }
+      data.reject! { |key, _| key =~ /\Axmlns/ }
       key = data.keys.first
       array = data[key]
       if data.keys.size == 1 && array.class == ::Array
