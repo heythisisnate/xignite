@@ -4,3 +4,96 @@
 
 Xignite is a Ruby client library for the [Xignite Web Services API](http://xignite.com)
 
+This gem only supports a subset of Xignite's Web Services. **Currently Supported** are all operations under:
+
+  * [Currencies](http://www.xignite.com/xCurrencies.asmx)
+  * [Metals](http://www.xignite.com/xMetals.asmx)
+
+## Installation ##
+
+    gem install xignite
+    require 'xignite'
+
+with Bundler, simply:
+
+    gem 'xignite'
+
+## Basic Usage ##
+
+  *Xignite Ruby* provides a rubyist's interface to the Xignite API. It constructs a GET or POST request for you, and then parses the response into Array and Hash-like Ruby objects. Reference the Xignite documentation for required parameters and options, and call the appropriate Web Service in one of two ways:
+
+    # The following two statements do the same thing
+    response = Xignite::Metals.get_last_real_time_metal_quote(
+      'Type' => 'XAU', 'Currency' => 'USD'
+    )
+
+    response = Xignite::Metals::GetLastRealTimeMetalQuote(
+      'Type' => 'XAU', 'Currency' => 'USD'
+    )
+
+  The response is a `Xignite::Metals::GetLastRealTimeMetalQuote` object:
+
+    #<Xignite::Metals::GetLastRealTimeMetalQuote:0x007fbbc3a648f8
+      @metal_quote={
+        "outcome"=>"Success",
+        "identity"=>"Request",
+        "delay"=>0.006,
+        "symbol"=>"XAUUSDO",
+        "type"=>"XAU",
+        "currency"=>"USD",
+        "date"=>#<Date: 2011-12-09 (4911809/2,0,2299161)>,
+        "time"=>2011-12-09 22:59:52 UTC,
+        "rate"=>1711.42498779,
+        "bid"=>1710.69995117,
+        "bid_time"=>2011-12-09
+        22:59:52 UTC,
+        "ask"=>1712.15002441,
+        "ask_time"=>2011-12-09 22:59:52 UTC
+      }>
+
+    response.metal_quote['ask']
+    # => 1712.15002441
+
+    response.metal_quote['time']
+    # => 2011-12-09 22:59:52 UTC
+
+## Configuration ##
+
+    Xignite.configure do |config|
+
+      # Configure which HTTP method is used to contact the Xignite service
+      # Default: :get, Possible values: [ :get, :post ]
+      #
+      self.request_method = :get
+
+      # Configure the endpoint hostname
+      # Default: www.xignite.com
+      #
+      self.endpoint = Xignite::URL
+
+      # Use HTTPS
+      # Default: false
+      #
+      self.https = true
+
+      # Set your Xignite username. This automatically adds a 'Header_Username' parameter to all requests
+      # Default: nil
+      #
+      self.username = 'goldbug'
+
+    end
+
+## Contributing ##
+
+To add support for additional web services or features, simply extend from the `Xignite::Service`. Pull requests are encouraged and will be considered promptly.
+
+[Issues/Requests](https://github.com/heythisisnate/xignite/issues)
+
+## In the Wild ##
+
+Xignite Ruby was originally written and maintained for [GoldBug](http://goldbugapp.com) app. Issue a pull request or let us know if you'd like your site/company link added here.
+
+## Disclaimer ##
+
+The author of this software is not affiliated with Xignite and cannot provide support for Xignite products and services.
+Please read the [MIT LICENSE](https://github.com/heythisisnate/xignite/blob/master/LICENSE) before using this software.
