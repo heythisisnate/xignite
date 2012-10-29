@@ -24,5 +24,21 @@ require 'xignite/helpers'
 require 'xignite/hash'
 require 'xignite/array'
 require 'xignite/service'
+
+# Equities
+require 'xignite/services/alphacanadianrealtime'
+require 'xignite/services/batslastsale'
+require 'xignite/services/batsrealtime'
+require 'xignite/services/globalhistorical'
+require 'xignite/services/globalquotes'
+require 'xignite/services/globalrealtime'
+require 'xignite/services/historical'
+require 'xignite/services/ipos'
+require 'xignite/services/nasdaqlastsale'
+require 'xignite/services/quotes'
+require 'xignite/services/realtime'
+
+
+# Forex & Metals
 require 'xignite/services/currencies'
 require 'xignite/services/metals'
