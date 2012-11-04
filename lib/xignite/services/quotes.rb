@@ -23,4 +23,4 @@ module Xignite
 			['GetMarketSummary',			{}]
 		]
 	end
-ends
+end
