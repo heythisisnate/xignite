@@ -1,40 +1,40 @@
 module Xignite
 	class Historical < Service
 		operations [
-			['GetSymbols', 									{}]
-			['GetHistoricalStatistics', 					{}]
-			['GetLastClosingPrice', 						{}]
-			['GetLastClosingPriceAdjusted', 				{}]
-			['GetLastClosingPrices', 						{}]
-			['GetLastClosingPricesAdjusted', 				{}]
-			['GetHistoricalQuote', 							{}]
-			['GetHistoricalQuoteAdjusted', 					{}]
-			['GetHistoricalQuotes', 						{}]
-			['GetHistoricalQuotesAdjusted', 				{}]
-			['GetHistoricalQuotesAsOf', 					{}]
-			['GetHistoricalQuotesAsOfAdjusted', 			{}]
-			['GetHistoricalQuotesRange', 					{}]
-			['GetHistoricalQuotesRangeAdjusted', 			{}]
-			['GetHistoricalWeeklyQuotesRange', 				{}]
-			['GetHistoricalWeeklyQuotesRangeAdjusted', 		{}]
-			['GetHistoricalMonthlyQuotesRange', 			{}]
-			['GetHistoricalMonthlyQuotesRangeAdjusted', 	{}]
-			['GetHistoricalQuarterlyQuotesRange', 			{}]
-			['GetHistoricalQuarterlyQuotesRangeAdjusted', 	{}]
-			['GetTopMovers', 								{}]
-			['GetTopMoversByExchange', 						{}]
-			['GetTopLosers', 								{}]
-			['GetTopGainers', 								{}]
-			['GetTopMoversByMarketCapitalization', 			{}]
-			['GetTopLosersByMarketCapitalization', 			{}]
-			['GetTopGainersByMarketCapitalization', 		{}]
-			['GetAdvancesAndDeclines', 						{}]
-			['GetDividendHistory', 							{}]
-			['GetDivendHistoryRange', 						{}]
-			['GetExtendedDividendHistory', 					{}]
-			['GetExtendedDividendHistoryRange', 			{}]
-			['GetSplitHistory', 							{}]
-			['GetAllSplits', 								{}]
+			['GetSymbols', 									{}],
+			['GetHistoricalStatistics', 					{}],
+			['GetLastClosingPrice', 						{}],
+			['GetLastClosingPriceAdjusted', 				{}],
+			['GetLastClosingPrices', 						{}],
+			['GetLastClosingPricesAdjusted', 				{}],
+			['GetHistoricalQuote', 							{}],
+			['GetHistoricalQuoteAdjusted', 					{}],
+			['GetHistoricalQuotes', 						{}],
+			['GetHistoricalQuotesAdjusted', 				{}],
+			['GetHistoricalQuotesAsOf', 					{}],
+			['GetHistoricalQuotesAsOfAdjusted', 			{}],
+			['GetHistoricalQuotesRange', 					{}],
+			['GetHistoricalQuotesRangeAdjusted', 			{}],
+			['GetHistoricalWeeklyQuotesRange', 				{}],
+			['GetHistoricalWeeklyQuotesRangeAdjusted', 		{}],
+			['GetHistoricalMonthlyQuotesRange', 			{}],
+			['GetHistoricalMonthlyQuotesRangeAdjusted', 	{}],
+			['GetHistoricalQuarterlyQuotesRange', 			{}],
+			['GetHistoricalQuarterlyQuotesRangeAdjusted', 	{}],
+			['GetTopMovers', 								{}],
+			['GetTopMoversByExchange', 						{}],
+			['GetTopLosers', 								{}],
+			['GetTopGainers', 								{}],
+			['GetTopMoversByMarketCapitalization', 			{}],
+			['GetTopLosersByMarketCapitalization', 			{}],
+			['GetTopGainersByMarketCapitalization', 		{}],
+			['GetAdvancesAndDeclines', 						{}],
+			['GetDividendHistory', 							{}],
+			['GetDivendHistoryRange', 						{}],
+			['GetExtendedDividendHistory', 					{}],
+			['GetExtendedDividendHistoryRange', 			{}],
+			['GetSplitHistory', 							{}],
+			['GetAllSplits', 								{}],
 			['GetSplitRatio', 								{}]
 		]
 	end

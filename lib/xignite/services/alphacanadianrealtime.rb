@@ -2,9 +2,9 @@ module Xignite
 	class AlphaCanadianRealTime < Service
 
 		operations [
-			['GetLastSale', 	{}]
-			['GetLastSales', 	{}]
-			['GetTick', 		{}]
+			['GetLastSale', 	{}],
+			['GetLastSales', 	{}],
+			['GetTick', 		{}],
 			['GetTicks', 		{}]
 		]
 	end

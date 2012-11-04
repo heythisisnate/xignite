@@ -2,10 +2,10 @@ module Xignite
 	class GlobalQuotes < Service
 
 	operations [
-		['GetGlobalDelayedQuote', 	{}]
-		['GetGlobalDelayedQuotes', 	{}]
-		['GetGlobalDelayedVWAP', 	{}]
-		['GetGlobalTick', 			{}]
+		['GetGlobalDelayedQuote', 	{}],
+		['GetGlobalDelayedQuotes', 	{}],
+		['GetGlobalDelayedVWAP', 	{}],
+		['GetGlobalTick', 			{}],
 		['GetGlobalTicks', 			{}]
 	]
 

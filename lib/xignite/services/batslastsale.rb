@@ -1,10 +1,10 @@
 module Xignite
 	class BATSLastSale < Service
 		operations [
-			['ListTradedSymbols', 			{}]
-			['GetLastSale', 				{}]
-			['GetLastSales', 				{}]
-			['GetLastSaleByIdentifier',		{}]
+			['ListTradedSymbols', 			{}],
+			['GetLastSale', 				{}],
+			['GetLastSales', 				{}],
+			['GetLastSaleByIdentifier',		{}],
 			['GetLastSaleByIdentifiers', 	{}]
 		]
 	end
